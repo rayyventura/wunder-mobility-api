@@ -8,6 +8,7 @@ var userSchema = Joi.object({
     zipCode: Joi.string().required(),
     city: Joi.string().required(),
     accountOwner: Joi.string().required(),
-    iban: Joi.string().required()
+    iban: Joi.string().required(),
+    paymentDataId: Joi.string().required()
 });
 export default userSchema;

@@ -34,42 +34,18 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { prisma } from "../database.js";
-export function register(data) {
+import axios from 'axios';
+export function pay(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var user;
+        var paymentData, paymentDataId;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, prisma.user.create({
-                        data: {
-                            firstName: data.firstName,
-                            lastName: data.lastName,
-                            phone: data.phone
-                        }
-                    })];
+                case 0:
+                    paymentData = req.body;
+                    return [4 /*yield*/, axios.post('https://37f32cl571.execute-api.eu-central-1.amazonaws.com/default/wunderfleet-recruiting-backend-dev-save-payment-data', paymentData)];
                 case 1:
-                    user = _a.sent();
-                    return [4 /*yield*/, prisma.$transaction([
-                            prisma.address.create({
-                                data: {
-                                    street: data.street,
-                                    number: data.number,
-                                    city: data.city,
-                                    zipCode: data.zipCode,
-                                    userId: user.id
-                                }
-                            }),
-                            prisma.paymentMethod.create({
-                                data: {
-                                    owner: data.accountOwner,
-                                    iban: data.iban,
-                                    paymentDataId: data.paymentDataId,
-                                    userId: user.id
-                                }
-                            })
-                        ])];
-                case 2:
-                    _a.sent();
+                    paymentDataId = _a.sent();
+                    res.status(200).send(paymentDataId.data);
                     return [2 /*return*/];
             }
         });
