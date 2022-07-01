@@ -1,7 +1,8 @@
 import express, { json } from "express";
 import "express-async-errors";
 import cors from "cors";
-import router from "./routes/userRouter.js";
+import router from "./routes/index.js";
+import axios from 'axios'
 
 const app = express();
 app.use(json());
@@ -15,3 +16,4 @@ app.listen(PORT, () => {
 });
 
 export default app;
+

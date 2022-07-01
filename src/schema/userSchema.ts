@@ -10,6 +10,7 @@ const userSchema = Joi.object({
     city: Joi.string().required(),
     accountOwner: Joi.string().required(),
     iban: Joi.string().required(),
+    paymentDataId:Joi.string().required(),
 })
 
 export default userSchema

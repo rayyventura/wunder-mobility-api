@@ -10,7 +10,9 @@ number:string;
 zipCode:string;
 city:string;
 accountOwner:string;
-iban:string
+iban:string;
+paymentDataId:string;
+
 }
 
 export async function register(req: Request, res: Response){

@@ -26,6 +26,7 @@ export async function register(data: UserData) {
                 data:{
                     owner:data.accountOwner,
                     iban:data.iban,
+                    paymentDataId:data.paymentDataId,
                     userId:user.id,
                 }})
         ]

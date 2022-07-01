@@ -3,8 +3,8 @@ import * as userController from '../controllers/userController.js'
 import { validateSchemaMiddleware } from "../middlewares/validateSchemaMiddleware.js";
 import userSchema from "../schema/userSchema.js";
 
-const router = Router();
+const userRouter = Router();
 
-router.post('/register', validateSchemaMiddleware(userSchema), userController.register)
+userRouter.post('/register', validateSchemaMiddleware(userSchema), userController.register)
 
-export default router;
+export default userRouter;
